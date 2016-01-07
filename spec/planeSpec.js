@@ -37,7 +37,8 @@ describe('Plane', function () {
 
       it('is prevented when plane already landed', function () {
         plane.land(airport);
-        expect(function () {plane.land(airport);}).toThrowError(TypeError, 'Plane already landed');
+        expect(function () {plane.land(airport);})
+          .toThrowError(TypeError, 'Plane already landed');
       });
     });
 
@@ -62,7 +63,8 @@ describe('Plane', function () {
 
       it('is prevented when the plane already airborne', function () {
         plane = new Plane();
-        expect(function () {plane.takeOff();}).toThrowError(TypeError, 'Plane already airborne');
+        expect(function () {plane.takeOff();})
+          .toThrowError(TypeError, 'Plane already airborne');
       });
     });
   });
@@ -75,13 +77,15 @@ describe('Plane', function () {
 
     describe('#land', function () {
       it('is prevented when the weather is stormy', function () {
-        expect(function () {plane.land(airport, weather);}).toThrowError(TypeError, 'Weather is stormy');
+        expect(function () {plane.land(airport, weather);})
+          .toThrowError(TypeError, 'Weather is stormy');
       });
     });
 
     describe('#takeOff', function () {
       it('is prevented when the weather is stormy', function () {
-        expect(function () {plane.land(airport, weather);}).toThrowError(TypeError, 'Weather is stormy');
+        expect(function () {plane.land(airport, weather);})
+          .toThrowError(TypeError, 'Weather is stormy');
       });
     });
   });
