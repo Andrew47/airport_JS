@@ -1,21 +1,24 @@
-function Airport (capacity, stored_planes) {
-  this.stored_planes = stored_planes || [];
-  this.capacity = capacity || Airport.DEFAULTCAPACITY;
+function Airport (capacity, storedPlanes) {
+  'use strict';
+  this._storedPlanes = storedPlanes || [];
+  this.capacity = capacity || Airport._DEFAULTCAPACITY;
+  this._DEFAULTCAPACITY = 20;
 }
 
-Object.defineProperty(Airport, 'DEFAULTCAPACITY', {value: 20});
+Airport.prototype.planes = function () {
+  return this._storedPlanes;
+};
 
 Airport.prototype.isFull = function () {
-  if (this.stored_planes.length === this.capacity) {
-    return true;
-  }
+  if (this._storedPlanes.length === this.capacity) return true;
   return false;
 };
 
 Airport.prototype.landplane = function (plane) {
-  this.stored_planes.push(plane);
+  if (this.isFull === true) throw new TypeError ('Airport Full');
+  this._storedPlanes.push(plane);
 };
 
 Airport.prototype.takeOffPlane = function (plane) {
-  this.stored_planes.pop(plane);
+  this._storedPlanes.pop(plane);
 };

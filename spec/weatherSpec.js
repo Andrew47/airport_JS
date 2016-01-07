@@ -10,12 +10,12 @@ describe('Weather', function () {
 
     it('can be stormy', function () {
       spyOn(weather, '_numberGenerator').and.returnValue(0);
-      expect(weather.isStormy()).toBe(true);
+      expect(weather.isStormy()).toBeTruthy();
     });
 
     it('can not be stormy', function () {
       spyOn(weather, '_numberGenerator').and.returnValue(3);
-      expect(weather.isStormy()).toBe(false);
+      expect(weather.isStormy()).toBeFalsy();
     });
   });
 

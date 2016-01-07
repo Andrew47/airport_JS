@@ -35,11 +35,6 @@ describe('Plane', function () {
         expect(airport.landplane).toHaveBeenCalledWith(plane);
       });
 
-      it('is prevented when airport is full', function () {
-        airport.isFull = true;
-        expect(function () {plane.land(airport);}).toThrowError(TypeError, 'Airport Full');
-      });
-
       it('is prevented when plane already landed', function () {
         plane.land(airport);
         expect(function () {plane.land(airport);}).toThrowError(TypeError, 'Plane already landed');
@@ -65,9 +60,9 @@ describe('Plane', function () {
         expect(plane.takeOff(airport)).toBe(plane);
       });
 
-      it('is prevented when the plane is already airborne', function () {
+      it('is prevented when the plane already airborne', function () {
         plane = new Plane();
-        expect(function () {plane.takeOff(airport);}).toThrowError(TypeError, 'Plane is already airborne');
+        expect(function () {plane.takeOff(airport);}).toThrowError(TypeError, 'Plane already airborne');
       });
     });
   });

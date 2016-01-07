@@ -4,12 +4,13 @@ describe('Airport', function () {
 
   beforeEach(function () {
     airport = new Airport();
+    plane = jasmine.createSpy('plane');
   });
 
-  describe('#stored_planes', function () {
+  describe('#planes()', function () {
 
-    it('is an empty array by default', function () {
-      expect(airport.stored_planes).toEqual([]);
+    it('returns an empty array by default', function () {
+      expect(airport.planes()).toEqual([]);
     });
   });
 
@@ -42,15 +43,21 @@ describe('Airport', function () {
 
     it('stores the plane in the airport', function () {
       airport.landplane(plane);
-      expect(airport.stored_planes).toContain(plane);
+      expect(airport.planes()).toContain(plane);
+    });
+
+    it('is prevented when airport is full', function () {
+      airport.isFull = true;
+      expect(function () {airport.landplane(plane);}).toThrowError(TypeError, 'Airport Full');
     });
   });
 
   describe('#takeOffPlane', function () {
 
     it('causes plane to leave the airport', function () {
+      airport.landplane(plane);
       airport.takeOffPlane(plane);
-      expect(airport.stored_planes).not.toContain(plane);
+      expect(airport.planes()).not.toContain(plane);
     });
   });
 });
