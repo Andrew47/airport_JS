@@ -2,6 +2,7 @@ describe('Feature Test:', function(){
   var plane, airport;
 
   beforeEach(function(){
+    'use strict';
     plane = new Plane();
     airport = new Airport();
   });

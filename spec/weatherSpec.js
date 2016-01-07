@@ -3,6 +3,7 @@ describe('Weather', function () {
   var weather;
 
   beforeEach (function () {
+    'use strict';
     weather = new Weather();
   });
 

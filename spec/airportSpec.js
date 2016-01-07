@@ -3,6 +3,7 @@ describe('Airport', function () {
   var airport, plane;
 
   beforeEach(function () {
+    'use strict';
     airport = new Airport();
     plane = jasmine.createSpy('plane');
   });
