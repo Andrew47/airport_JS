@@ -43,26 +43,26 @@ describe('Plane', function () {
 
     describe('#takeOff', function () {
       beforeEach(function () {
-        spyOn(plane, 'isAirborne').and.returnValue(false);
+        plane.land(airport);
       });
 
       it('leads to the plane being airborne', function () {
-        plane.takeOff(airport);
+        plane.takeOff();
         expect(plane.isAirborne).toBe(true);
       });
 
       it('causes takeOffPlane to be called on airport', function () {
-        plane.takeOff(airport);
+        plane.takeOff();
         expect(airport.takeOffPlane).toHaveBeenCalledWith(plane);
       });
 
       it('returns a plane', function () {
-        expect(plane.takeOff(airport)).toBe(plane);
+        expect(plane.takeOff()).toBe(plane);
       });
 
       it('is prevented when the plane already airborne', function () {
         plane = new Plane();
-        expect(function () {plane.takeOff(airport);}).toThrowError(TypeError, 'Plane already airborne');
+        expect(function () {plane.takeOff();}).toThrowError(TypeError, 'Plane already airborne');
       });
     });
   });

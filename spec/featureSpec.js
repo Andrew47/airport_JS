@@ -13,7 +13,7 @@ describe('Feature Test:', function(){
 
   it('planes can takeoff', function(){
     plane.land(airport);
-    plane.takeOff(airport);
+    plane.takeOff();
     expect(airport.planes()).not.toContain(plane);
   });
 });

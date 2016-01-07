@@ -1,19 +1,22 @@
 function Plane(isAirborne) {
   'use strict';
   this.isAirborne = isAirborne || true;
+  this._location = undefined;
 }
 
 Plane.prototype.land = function (airport, weather) {
   this._suitableConditionsCheck(weather, false);
   airport.landplane(this);
   this.isAirborne = false;
+  this._location = airport;
   return this;
 };
 
 Plane.prototype.takeOff = function (airport, weather) {
   this._suitableConditionsCheck(weather, true);
-  airport.takeOffPlane(this);
+  this._location.takeOffPlane(this);
   this.isAirborne = true;
+  this._location = undefined;
   return this;
 };
 
