@@ -1,8 +1,7 @@
 function Airport (capacity, storedPlanes) {
   'use strict';
   this._storedPlanes = storedPlanes || [];
-  this.capacity = capacity || Airport._DEFAULTCAPACITY;
-  this._DEFAULTCAPACITY = 20;
+  this.capacity = capacity || 20;
 }
 
 Airport.prototype.planes = function () {

@@ -18,7 +18,7 @@ describe('Airport', function () {
   describe('#capacity', function () {
 
     it('has a default value', function () {
-      expect(airport.capacity).toEqual(Airport.DEFAULTCAPACITY);
+      expect(airport.capacity).toEqual(20);
     });
 
     it('can be overridden on exercise', function () {
