@@ -61,5 +61,6 @@ So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 ```
 
-##Author
+##Contributors
 * [Andrew Burnie](https://github.com/Andrew47)
+* [Tom Bradley](https://github.com/trbradley)
